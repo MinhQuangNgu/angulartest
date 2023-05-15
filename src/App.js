@@ -5,8 +5,8 @@ import axios from 'axios'
 const clientConfig = {
     grant_type: 'client_credentials',
     client_id:
-      'ff580d0f-794f-4395-9657-a47dde9f3d0c@f01e930a-b52e-42b1-b70f-a8882b5d043b',
-    client_secret: 'ewHOm1PCuTuyxaQ7SRrWaNBCPWP2TmXP31VfPa6eOoQ=',
+      '5865820c-216b-47cb-910a-7aeda10bc475@f01e930a-b52e-42b1-b70f-a8882b5d043b',
+    client_secret: 'z6AFk6igMKNFpHN+hJXOwoZbkfPf7jWY/MVm/Sflk5s=',
     resourse:
       '00000003-0000-0ff1-ce00-000000000000/fptsoftware362.sharepoint.com@f01e930a-b52e-42b1-b70f-a8882b5d043b',
 };
@@ -29,8 +29,13 @@ function App() {
 
   const getAccessToken = async() => {
         try{
-            const data = await axios.get(`${getAccessTokenPointUrl}/f01e930a-b52e-42b1-b70f-a8882b5d043b/tokens/OAuth/2`,{
-                headers:{...clientConfig}
+            const data = await axios.post(`${getAccessTokenPointUrl}/f01e930a-b52e-42b1-b70f-a8882b5d043b/tokens/OAuth/2`,{
+              ...clientConfig
+            },{
+                headers:{
+                  "Content-Type":"application/json;odata=verbose",
+                  "Accept":"application/json;odata=verbose"
+                },
             });
             console.log(data)
         }
