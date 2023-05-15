@@ -29,7 +29,9 @@ function App() {
 
   const getAccessToken = async() => {
         try{
-            const data = await axios.get(`${getAccessTokenPointUrl}/f01e930a-b52e-42b1-b70f-a8882b5d043b/tokens/OAuth/2`);
+            const data = await axios.get(`${getAccessTokenPointUrl}/f01e930a-b52e-42b1-b70f-a8882b5d043b/tokens/OAuth/2`,{
+                headers:{...clientConfig}
+            });
             console.log(data)
         }
         catch(err){
